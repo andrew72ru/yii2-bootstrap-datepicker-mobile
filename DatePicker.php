@@ -33,6 +33,12 @@ class DatePicker extends InputWidget
         $attr = $this->attribute;
         if($this->model->$attr == null)
             $this->model->$attr = $this->getNow();
+        else
+        {
+            try {
+                $this->model->$attr = \Yii::$app->formatter->asDate($this->model->$attr, 'MM/dd/yy'); 
+            } catch (\Exception $e) { $this->model->$attr = $this->getNow(); }
+        }
     }
 
     public function run()
