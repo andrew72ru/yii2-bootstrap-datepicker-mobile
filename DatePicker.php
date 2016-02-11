@@ -16,7 +16,6 @@ use yii\widgets\InputWidget;
  */
 class DatePicker extends InputWidget
 {
-    public $dateFormat = false;
     public $dateStart = false;
     public $pluginOptions = [];
 
@@ -26,9 +25,6 @@ class DatePicker extends InputWidget
     {
         parent::init();
         DatepickerAsset::register($this->getView());
-
-        if(!$this->dateFormat)
-            $this->dateFormat = 'MM/dd/yy';
 
         $this->_data['date-start-view'] = ArrayHelper::remove($this->pluginOptions, 'date-start-view', 'day');
         $this->_data['date-format'] = ArrayHelper::remove($this->pluginOptions, 'date-format', 'dd.mm.yy');
