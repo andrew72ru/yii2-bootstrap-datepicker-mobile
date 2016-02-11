@@ -5,8 +5,6 @@ namespace andrew72ru\datepicker;
 use Yii;
 use andrew72ru\datepicker\assets\DatepickerAsset;
 use andrew72ru\datepicker\assets\DatepickerMobileAsset;
-use andrew72ru\datepicker\assets\ModernizrAsset;
-use andrew72ru\datepicker\assets\MomentAsset;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
@@ -27,7 +25,7 @@ class DatePicker extends InputWidget
     public function init()
     {
         parent::init();
-        DatepickerMobileAsset::register($this->getView());
+        DatepickerAsset::register($this->getView());
 
         if(!$this->dateFormat)
             $this->dateFormat = 'MM/dd/yy';
