@@ -28,4 +28,12 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \andrew72ru\datepicker\AutoloadExample::widget(); ?>```
+<?= $form->field($model, 'date')->widget(\andrew72ru\datepicker\DatePicker::className(), [
+    'options' => [], // Html tag options
+    'pluginOptions' => [
+        'date-start-view' => 'day',
+        'date-format' => 'dd.mm.yy',
+        'date' => \Yii::$app->formatter->asDate(time(), 'MM/dd/yy'),
+    ],
+]); ?>
+```
